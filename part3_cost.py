@@ -26,7 +26,7 @@ import sys
 from pathlib import Path
 from typing import Dict, Optional, Tuple
 
-from prices import MODELS, PRICE_CHECKED, PRICE_SOURCE, cost_usd
+from prices import DEFAULT_MODEL, MODELS, PRICE_CHECKED, PRICE_SOURCE, cost_usd
 from texts import LANGUAGES
 
 DEFAULT_MEASUREMENTS = Path(__file__).with_name("measurements.json")
@@ -35,7 +35,7 @@ DEFAULT_MEASUREMENTS = Path(__file__).with_name("measurements.json")
 FALLBACK_OUTPUT_TOKENS = 300
 
 #: Order the price tables cheapest first.
-MODEL_ORDER = ("haiku-4.5", "sonnet-5", "opus-5", "fable-5.1")
+   MODEL_ORDER = ("gemini-3.1-flash-lite", "gemini-3.5-flash-lite", "gemini-3.8-flash", "gemini-3.1-pro-preview")
 
 
 def load_measurements(path: Path) -> Dict[str, object]:
@@ -140,7 +140,7 @@ def main() -> int:
         help="force one answer length for all languages, instead of the measurement",
     )
     parser.add_argument(
-        "--model", default="opus-5", choices=sorted(MODELS),
+        "--model", default=DEFAULT_MODEL, choices=sorted(MODELS),
         help="which model the final summary is about (default: opus-5)",
     )
     args = parser.parse_args()
