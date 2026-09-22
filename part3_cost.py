@@ -35,7 +35,7 @@ DEFAULT_MEASUREMENTS = Path(__file__).with_name("measurements.json")
 FALLBACK_OUTPUT_TOKENS = 300
 
 #: Order the price tables cheapest first.
-   MODEL_ORDER = ("gemini-3.1-flash-lite", "gemini-3.5-flash-lite", "gemini-3.8-flash", "gemini-3.1-pro-preview")
+MODEL_ORDER = ("gemini-3.1-flash-lite", "gemini-3.5-flash-lite", "gemini-3.8-flash", "gemini-3.1-pro-preview")
 
 
 def load_measurements(path: Path) -> Dict[str, object]:
